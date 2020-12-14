@@ -5,13 +5,13 @@ import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 // Small program to practice working with files, using Path & Files types
-public class UsingFilesAndTypes {
+public class UsingFilesAndPath {
 
     // Constructor 
-    UsingFilesAndTypes(){}
+    UsingFilesAndPath(){}
 
     public static void main(String[] args) throws Exception {
-        UsingFilesAndTypes reader = new UsingFilesAndTypes();
+        UsingFilesAndPath reader = new UsingFilesAndPath();
 
         // get object representation of file paths 
         Path readPath = Paths.get("readerTest.txt");
