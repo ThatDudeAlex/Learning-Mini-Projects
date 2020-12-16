@@ -15,7 +15,7 @@ public class UsingFilesAndPath {
 
         // get object representation of file paths 
         Path readPath = Paths.get("readerTest.txt");
-        Path writePath = Paths.get("writerTest.txt");
+        Path writePath = Paths.get("usingFilesAndPath.txt");
 
         reader.readFromFile(readPath);
         reader.writeToFile(writePath);
@@ -25,7 +25,7 @@ public class UsingFilesAndPath {
 
 
     // Reads all the lines in readerTest.txt and prints them to the console
-    public void readFromFile(Path path) throws Exception{
+    private void readFromFile(Path path) throws Exception{
         List<String> lines = Files.readAllLines(path);
 
         for(String line : lines) 
@@ -34,7 +34,7 @@ public class UsingFilesAndPath {
     }
 
     // Writes the data array into writerTest.txt 
-    public void writeToFile(Path path) throws Exception {
+    private void writeToFile(Path path) throws Exception {
         String[] data = {
             "Starting Writer Test",
             "Writing 1",
@@ -49,7 +49,7 @@ public class UsingFilesAndPath {
 
     // Appends the contents of the readerTest.txt file into the writerTest.txt file,
     // then opens & reads writerTest.txt to print it to the console
-    public void appendToFileAndReadIt(Path readPath, Path writePath) throws Exception{
+    private void appendToFileAndReadIt(Path readPath, Path writePath) throws Exception{
         System.out.println("\n--- Preparing Read/Write Pipeline ---\n");
 
         List<String> data = new ArrayList<>();
@@ -63,7 +63,7 @@ public class UsingFilesAndPath {
     }
 
     // Clean up by deleting writerTest.txt
-    public void deleteOutputFile(Path path) throws Exception{
+    private void deleteOutputFile(Path path) throws Exception{
         Files.delete(path);
         System.out.printf("\nPath: %s was just deleted", path.toString());
     }

@@ -1,11 +1,10 @@
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
 
@@ -15,21 +14,25 @@ public class UsingStreams {
     public static void main(String[] args) throws Exception {
         UsingStreams myClass = new UsingStreams();
         String readPath = "readerTest.txt";
-        String writePath = "writerTest.txt";
 
-        // myClass.readFromFileUsingInputStreams(readPath); 
-        // myClass.readFromFileUsingInputReaders(readPath);   
-        myClass.writeUsingFileWriter(writePath);
+        myClass.readFromFileUsingInputStreams(readPath); 
+        myClass.readFromFileUsingInputReaders(readPath);   
+        myClass.writeToFiles();
     }
 
-    public void readFromFileUsingInputStreams(String readPath) {
+    private void readFromFileUsingInputStreams(String readPath) {
         readUsingFileInputStream(readPath);
         readUsingBufferedInputStream(readPath);
     }
 
-    public void readFromFileUsingInputReaders(String readPath) {
+    private void readFromFileUsingInputReaders(String readPath) {
         readFileUsingFileReader(readPath);
         readFileUsingBufferedReader(readPath);
+    }
+
+    private void writeToFiles() {
+        writeUsingFileWriter();
+        writeUsingBufferedWriter();
     }
 
 
@@ -48,7 +51,7 @@ public class UsingStreams {
      * 
      * @param readPath
      */
-    public void readUsingFileInputStream(String readPath) {
+    private void readUsingFileInputStream(String readPath) {
         System.out.println("--- Using FileInputStream To Read 1 Byte at a time ---");
 
         // Try/Catch with resources so that stream can be closed automatically 
@@ -72,7 +75,7 @@ public class UsingStreams {
      * 
      * @param readPath
      */
-    public void readUsingBufferedInputStream(String readPath) {
+    private void readUsingBufferedInputStream(String readPath) {
         // byte buff, because BufferedInputStreams reads the file in chunks of bytes buffer can hold 1024 characters because 1 byte = 1 char
         byte[] buffer = new byte[1024];
         System.out.println("\n\n--- Using BufferedInputStream To Read chunks of Bytes at a time ---");
@@ -107,7 +110,7 @@ public class UsingStreams {
      * InputReaders & OutputWriters are character based Objects, meaning they read/write data as characters
      */
 
-    public void readFileUsingFileReader(String readPath) {
+    private void readFileUsingFileReader(String readPath) {
         System.out.println("\n\n--- Using FileReader To Read 1 char at a time ---");
 
         // Try/Catch with resources so that stream can be closed automatically 
@@ -129,21 +132,17 @@ public class UsingStreams {
         }
     }
 
-    public void readFileUsingBufferedReader(String readPath) {
-        char[] buffer = new char[1024];
-        System.out.println("\n\n--- Using BufferedReader To Read chunks of char at a time ---");
+    private void readFileUsingBufferedReader(String readPath) {
+        System.out.println("\n\n--- Using BufferedReader To Read 1 line of chars at a time ---\n");
 
         // Try/Catch with resources that layers a BufferedInputStream over a FileInputStream, & automatically closes both streams       
-        try (Reader input = new BufferedReader(new FileReader(readPath)) ) {
-            int length;
-            System.out.println("\nEach line of characters represents the chars stored in the Buffer:\n");
+        try (BufferedReader input = new BufferedReader(new FileReader(readPath)) ) {
+            String lineRead;
 
-            // Keeps reading characters into the buffer, and tells length the number of characters contained in the buffer 
-            // until length = -1 which means end of file. Then prints out the content of the buffer
-            while ((length = input.read(buffer)) >= 0) {
-                for(int i = 0; i < length; i++) 
-                    System.out.printf("%c", buffer[i]);
-            }
+            // Keeps each line in the file, until it reads and determines EOF
+            while((lineRead = input.readLine()) != null)
+                System.out.println(lineRead);
+
         } catch (Exception e) {
             // handle exception
             handleExceptions(e);
@@ -155,9 +154,10 @@ public class UsingStreams {
      * 
      * @param writePath
      */
-    public void writeUsingFileWriter(String writePath) {
-        System.out.println("--- Using FileWriter To Write 1 String at a time ---");
+    private void writeUsingFileWriter() {
+        System.out.println("\n\n--- Using FileWriter To Write 1 String at a time ---");
 
+        String writePath = "usingFileWriter.txt";
         String[] data = {
             "Starting Writer Test",
             "Writing 1",
@@ -177,9 +177,33 @@ public class UsingStreams {
         }
     }
 
-    
 
-    public void handleExceptions(Exception e) {
+    private void writeUsingBufferedWriter() {
+        System.out.println("\n\n--- Using BufferedWriter ---");
+
+        String writePath = "usingBufferedWriter.txt";
+        String[] data = {
+            "Starting Writer Test",
+            "Writing 1",
+            "Writing 1 2",
+            "Writing 1 2 3",
+            "Writing Testing Complete"
+        };
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(writePath))) {
+            for(String string : data){
+                writer.write(string);
+                writer.newLine();
+            }
+        } catch (Exception e) {
+            //TODO: handle exception
+            handleExceptions(e);
+        }
+    }
+
+
+
+    private void handleExceptions(Exception e) {
         System.out.printf("An Error Occurred: %s", e.getMessage());
     }
 }
