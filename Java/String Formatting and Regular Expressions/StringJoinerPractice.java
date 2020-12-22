@@ -154,7 +154,7 @@ public class StringJoinerPractice {
     // helper function for printing the header for each method call
     private static void printHeader(String title){
         System.out.println("\n----------------------------------------------");
-        System.out.println(String.format("|      %s          ", title));
+        System.out.printf("|      %s          \n", title);
         System.out.println("----------------------------------------------\n");
     }
 
