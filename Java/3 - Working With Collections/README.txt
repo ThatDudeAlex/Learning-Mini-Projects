@@ -55,3 +55,5 @@ Common Equality-based methods
 - remove:       Remove element 
 - removeAll:    Remove all elements contained in another collection
 - addAll:       Remove all elements not contained in another collection 
+
+    * Each of the common equality methods is based on the classes equal method.
