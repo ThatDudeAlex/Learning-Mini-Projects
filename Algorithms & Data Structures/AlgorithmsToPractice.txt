@@ -1,0 +1,31 @@
+Algorithms to code by hand   |
+------------------------------
+
+        Search
+------------------------ 
+1- binary search
+2- BFS
+3- DFS
+
+        Sort
+------------------------
+1- bubble 
+2- selection
+3- insertion
+4- merge
+5- bucket
+6- radix
+
+        Trees
+--------------------------
+1- traversal
+    - Inorder
+    - Preorder
+    - Postorder
+2- Heaps
+    - Min
+    - Max
+
+
+
+
