@@ -4,7 +4,7 @@ import static Helper.UnsortedListGenerator.*;
 public class InsertionSort {
 
     public static void main(String[] args) {
-        int[] list = generateUnsortedList(30, 1000);
+        int[] list = generateUnsortedList();
 
         printHeaders("Before Insertion Sort");
         printList(list);
@@ -17,8 +17,13 @@ public class InsertionSort {
     /* 
         Insertion Sort
 
-        Worst Case runtime: O(n^2)
-        Best Case runtime:  O(n)
+        Time Complexity
+        ---------------------
+        Worst   : O(n^2)
+
+        Average : O(n^2)
+
+        Best    : O(n)
     */
     private static int[] performInsertionSort(int[] unsortedList) {
         for (int i = 1; i < unsortedList.length; i++) 

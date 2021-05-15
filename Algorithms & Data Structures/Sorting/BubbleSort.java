@@ -18,8 +18,13 @@ public class BubbleSort {
         Bubble Sort works by slowly moving bigger numbers down the list, eventually every number will  
         end in their correct spot. Not a very efficient sorting algorithm.
 
-        Worst Case runtime: O(n^2)
-        Best Case runtime:  O(n)
+        Time Complexity
+        ---------------------
+        Worst   : O(n^2)
+
+        Average : O(n^2)
+        
+        Best    : O(n)
     */
     private static int[] performBubbleSort(int[] list) {
         for (int i = 0; i < list.length; i++) 

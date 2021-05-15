@@ -4,7 +4,7 @@ import static Helper.UnsortedListGenerator.*;
 public class SelectionSort {
 
     public static void main(String[] args) {
-        int[] list = generateUnsortedList(30, 1000);
+        int[] list = generateUnsortedList();
 
         printHeaders("Before Selection Sort");
         printList(list);
@@ -17,8 +17,13 @@ public class SelectionSort {
     /* 
         Selection Sort
 
-        Worst Case runtime: O(n^2)
-        Best Case runtime:  O(n)
+        Time Complexity
+        ---------------------
+        Worst   : O(n^2)
+
+        Average : O(n^2)
+        
+        Best    : O(n^2)
     */
     private static int[] performSelectionSort(int[] list) {
         int smallestNumberIndex;
