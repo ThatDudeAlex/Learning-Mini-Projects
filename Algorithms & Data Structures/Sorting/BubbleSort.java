@@ -4,7 +4,7 @@ import static Helper.UnsortedListGenerator.*;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] list = generateUnsortedList(30, 1000);
+        int[] list = generateUnsortedList();
 
         printHeaders("Before Bubble Sort");
         printList(list);

@@ -1,11 +1,12 @@
-import static Helper.ListUtils.*;
-import static Helper.UnsortedListGenerator.*;
+import static Helper.ListUtils.printHeaders;
+import static Helper.ListUtils.printList;
+import static Helper.UnsortedListGenerator.generateUnsortedList;;
 
 public class BucketSort {
  
     public static void main(String[] args) {
         int UPPER_BOUND = 100;
-        int[] list = generateUnsortedList(30, UPPER_BOUND);
+        int[] list = generateUnsortedList(20, UPPER_BOUND);
 
         printHeaders("Before Bucket Sort");
         printList(list);
@@ -18,13 +19,17 @@ public class BucketSort {
     /* 
         Bucket Sort
 
+        Note: The runtime of counting sort is O(MAX{n,m}), where n is the number of elements to be sorted, and
+        m is the length of the buckets array. We can also express this runtime as O(n + m), because whichever
+        term ends up being larger will wash out the other term.
+
         Time Complexity
         ---------------------
         Worst   : O(n^2)
 
-        Average : O(n + k)
+        Average : O(n + m)
         
-        Best    : O(n + k)
+        Best    : O(n + m)
     */
     private static int[] performBucketSort(int[] list, int maxNumberInRange) {
         int[] buckets = new int[maxNumberInRange + 1];

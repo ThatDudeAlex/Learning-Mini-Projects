@@ -10,6 +10,13 @@ public class ListUtils {
         list[index1] = placeHolder;
     }
 
+    public static boolean isSorted(int[] list) {
+        for (int i = 1; i < list.length; i++)
+            if (list[i - 1] > list[i])
+                return false;
+        return true;
+    }
+
     /* 
         -------------------------------------------------------------------------------------------------------------------------
                                         Print List Methods
