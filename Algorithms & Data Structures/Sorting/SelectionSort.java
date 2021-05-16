@@ -11,6 +11,12 @@ public class SelectionSort {
 
         printHeaders("After Selection Sort");
         printList(performSelectionSort(list));
+
+        
+        if (isSorted(list))
+            printHeaders("HOORAY!");
+        else
+            printHeaders("Fail :(");
     }
 
 

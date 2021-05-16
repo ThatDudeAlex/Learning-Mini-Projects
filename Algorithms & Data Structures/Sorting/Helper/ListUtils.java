@@ -33,6 +33,15 @@ public class ListUtils {
         System.out.println("\n");
     }
 
+        // Prints every number between the 2 bounds in the array, each number will have a width of 5 and be left-justified 
+        public static void printListBounds(int[] list, int lowerBound, int higherBound) {
+            for (int i = lowerBound, j = 0; i <= higherBound; i++, j++)
+                if ((i != 0) && (j % 10 == 0))
+                    System.out.printf("\n%-6d  ", list[i]);
+                else 
+                    System.out.printf("%-6d  ", list[i]);
+            System.out.println("\n");
+        }
 
 
     /* 

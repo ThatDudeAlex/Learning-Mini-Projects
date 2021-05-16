@@ -11,6 +11,12 @@ public class InsertionSort {
 
         printHeaders("After Insertion Sort");
         printList(performInsertionSort(list));
+
+        
+        if (isSorted(list))
+            printHeaders("HOORAY!");
+        else
+            printHeaders("Fail :(");
     }
 
 

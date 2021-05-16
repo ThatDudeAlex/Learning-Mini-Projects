@@ -1,5 +1,4 @@
-import static Helper.ListUtils.printHeaders;
-import static Helper.ListUtils.printList;
+import static Helper.ListUtils.*;
 import static Helper.UnsortedListGenerator.generateUnsortedList;;
 
 public class BucketSort {
@@ -13,6 +12,12 @@ public class BucketSort {
 
         printHeaders("After Bucket Sort");
         printList(performBucketSort(list, UPPER_BOUND));
+
+        
+        if (isSorted(list))
+            printHeaders("HOORAY!");
+        else
+            printHeaders("Fail :(");
     }
 
 

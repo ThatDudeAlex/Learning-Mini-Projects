@@ -1,6 +1,5 @@
-import static Helper.ListUtils.printHeaders;
-import static Helper.ListUtils.printList;
-import static Helper.UnsortedListGenerator.generateUnsortedList;;
+import static Helper.ListUtils.*;
+import static Helper.UnsortedListGenerator.generateUnsortedList;
 
 
 import java.util.ArrayList;
@@ -16,6 +15,12 @@ public class RadixSort {
 
         printHeaders("After Radix Sort");
         printList(performRadixSort(list));
+
+        
+        if (isSorted(list))
+            printHeaders("HOORAY!");
+        else
+            printHeaders("Fail :(");
     }
 
     /* 
