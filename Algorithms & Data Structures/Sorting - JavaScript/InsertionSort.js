@@ -1,10 +1,6 @@
 // ========= Imports =============
-const swap          = require("./Helper/ListUtils").swap
-const isSorted      = require("./Helper/ListUtils").isSorted
-const printHeaders  = require("./Helper/ListUtils").printHeaders
-const printList     = require("./Helper/ListUtils").printList
-
-const generateFixedSizeUnsortedList = require("./Helper/UnsortedListGenerator").generateFixedSizeUnsortedList
+const {swap, isSorted, printHeaders, printList} = require("./Helper/ListUtils")
+const {generateFixedSizeUnsortedList}           = require("./Helper/UnsortedListGenerator")
 
 /* 
     Insertion Sort
@@ -21,24 +17,24 @@ performInsertionSort = (unsortedList) => {
     for (let i = 1; i < unsortedList.length; i++) 
         for (let j = i; j >= 1; j--) 
             if (unsortedList[j - 1] > unsortedList[j]) 
-                swap(unsortedList, j, j - 1);
-    return unsortedList;
+                swap(unsortedList, j, j - 1)
+    return unsortedList
 }
 
 main = () => {
-    let list = generateFixedSizeUnsortedList();
+    let list = generateFixedSizeUnsortedList()
 
-    printHeaders("Before Insertion Sort");
-    printList(list);
+    printHeaders("Before Insertion Sort")
+    printList(list)
 
-    printHeaders("After Insertion Sort");
-    printList(performInsertionSort(list));
+    printHeaders("After Insertion Sort")
+    printList(performInsertionSort(list))
 
     
     if (isSorted(list))
-        printHeaders("HOORAY!");
+        printHeaders("HOORAY!")
     else
-        printHeaders("Fail :(");
+        printHeaders("Fail :(")
 }
 
 main()

@@ -8,8 +8,8 @@ const swap = (list, index1, index2) => {
 const isSorted = (list) => {
     for (let i = 1; i < list.length; i++)
         if (list[i - 1] > list[i])
-            return false;
-    return true;
+            return false
+    return true
 }
 
 /* 
