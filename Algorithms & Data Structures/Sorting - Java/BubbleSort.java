@@ -11,7 +11,6 @@ public class BubbleSort {
 
         printHeaders("After Bubble Sort");
         printList(performBubbleSort(list));
-
         
         if (isSorted(list))
             printHeaders("HOORAY!");

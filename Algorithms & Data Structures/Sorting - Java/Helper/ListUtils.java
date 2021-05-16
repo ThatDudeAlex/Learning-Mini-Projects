@@ -25,24 +25,25 @@ public class ListUtils {
 
     // Prints every number in an array, each number will have a width of 5 and be left-justified 
     public static void printList(int[] list) {
-        for (int i = 0; i < list.length; i++)
-            if ((i != 0) && (i % 10 == 0))
-                System.out.printf("\n%-6d  ", list[i]);
-            else 
-                System.out.printf("%-6d  ", list[i]);
-        System.out.println("\n");
+        displayList(list, 0, list.length - 1);
     }
 
-        // Prints every number between the 2 bounds in the array, each number will have a width of 5 and be left-justified 
-        public static void printListBounds(int[] list, int lowerBound, int higherBound) {
-            for (int i = lowerBound, j = 0; i <= higherBound; i++, j++)
-                if ((i != 0) && (j % 10 == 0))
-                    System.out.printf("\n%-6d  ", list[i]);
-                else 
-                    System.out.printf("%-6d  ", list[i]);
-            System.out.println("\n");
-        }
+    // Prints every number between the 2 bounds in the array, each number will have a width of 5 and be left-justified 
+    public static void printListBetweenBounds(int[] list, int lowerBound, int higherBound) {
+        displayList(list, lowerBound, higherBound);
+    }
 
+    private static void displayList(int[] list, int lowerBound, int higherBound) {
+        StringBuilder listOutput = new StringBuilder();
+        
+        for (int i = lowerBound, j = 0; i <= higherBound; i++, j++)
+            if ((i != 0) && (j % 10 == 0))
+                listOutput.append(String.format("\n%-10d", list[i]));
+            else 
+                listOutput.append(String.format("%-10d", list[i]));
+                
+        System.out.println(listOutput.append("\n").toString());
+    }
 
     /* 
         -------------------------------------------------------------------------------------------------------------------------
@@ -55,11 +56,11 @@ public class ListUtils {
     }
 
     private static String printHeaderBorders(String headerMsg) {
-        StringBuilder stringBuilder = new StringBuilder();
+        String borders = "";
 
         for (int i = 0; i < headerMsg.length() + 6; i++)
-            stringBuilder.append("=");
+            borders += "=";
 
-        return stringBuilder.toString();
+        return borders;
     }
 }
