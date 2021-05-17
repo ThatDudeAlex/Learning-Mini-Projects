@@ -1,7 +1,6 @@
 import static Helper.ListUtils.*;
 import static Helper.UnsortedListGenerator.generateUnsortedList;
 
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,7 +49,7 @@ public class RadixSort {
                 radixBuckets.get(leastSignificantDigit).add(list[i]);
             }
 
-            for (int i = 0, j = 0; i < radixBuckets.size(); i++) {
+            for (int i = 0; i < radixBuckets.size(); i++) {
                 while (radixBuckets.get(i).size() > 0) {
                     list[listIndex++] = radixBuckets.get(i).poll();
                 }

@@ -1,6 +1,6 @@
 // ========= Imports =============
-const {swap, isSorted, printHeaders, printList} = require("./Helper/ListUtils")
-const {generateFixedSizeUnsortedList}           = require("./Helper/UnsortedListGenerator")
+const {isSorted, printHeaders, printList} = require("./Helper/ListUtils")
+const {generateFixedSizeUnsortedList}     = require("./Helper/UnsortedListGenerator")
 
 
 /* 

@@ -35,19 +35,19 @@ performBucketSort = (list, maxNumberInRange) => {
 }
 
 main = () => {
-    let UPPER_BOUND = 100;
-    const list = generateUnsortedList(20, UPPER_BOUND);
+    let UPPER_BOUND = 100
+    const list = generateUnsortedList(20, UPPER_BOUND)
 
-    printHeaders("Before Bucket Sort");
-    printList(list);
+    printHeaders("Before Bucket Sort")
+    printList(list)
 
-    printHeaders("After Bucket Sort");
-    printList(performBucketSort(list, UPPER_BOUND));
+    printHeaders("After Bucket Sort")
+    printList(performBucketSort(list, UPPER_BOUND))
 
     if (isSorted(list))
-        printHeaders("HOORAY!");
+        printHeaders("HOORAY!")
     else
-        printHeaders("Fail :(");
+        printHeaders("Fail :(")
 }
 
 main()
