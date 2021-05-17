@@ -1,65 +1,52 @@
+import static Helper.ListUtils.*;
+import static Helper.ListGenerator.*;
+
 public class BinarySearch {
 
     public static void main(String[] args) {
-        int[] data = createSortedData();
-
-        printSortedData(data);
-        testDataWithMultiplesOf(data, 90);
-        testDataWithMultiplesOf(data, 220);
-        testDataWithMultiplesOf(data, 1300);
-    }
-
-    // Creates a sorted array of integers
-    private static int[] createSortedData() {
-        int[] data = new int[50];
+        int[] sortedList        = generateSortedList(100);
+        int numberToFind        = 44; // change this number to test if is in the list
+        int numberFoundAtIndex  = performBinarySearch(sortedList, numberToFind);
         
-        for (int i = 0; i < data.length; i++) 
-            data[i] = i * 100;
+        printHeaders(String.format("Sorted list of size: %d", sortedList.length));
+        printList(sortedList, numberFoundAtIndex);
 
-        return data;
+        if (numberFoundAtIndex >= 0) 
+            NumberFoundHeader(numberFoundAtIndex, numberToFind);
+        else
+            printHeaders(String.format("LIST DOES NOT CONTAINER THE NUMEBER %d", numberToFind));
     }
 
-    // Performs binary search on the first 10 multiples of the given number
-    private static void testDataWithMultiplesOf(int[] data, int multiple) {
-        System.out.printf("\nTesting data with the first 10 multiples of %d\n------------\n", multiple);
-
-        for (int i = 1; i <= 10; i++)
-            System.out.printf("Is %-4d inside the list: %b\n\n", i * multiple, performBinarySearch(data, i * multiple));
-    }
-
-    // Handles the Binary Search Algorithm
-    private static boolean performBinarySearch(int[] data, int dataPoint) {
+    //  return the index of the number found or -1
+    private static int performBinarySearch(int[] sortedList, int numberToFind) {
         int lowestIndex = 0;
-        int highestIndex = data.length - 1;
+        int highestIndex = sortedList.length - 1;
         int middleIndex = (lowestIndex + highestIndex) / 2;
 
         while (lowestIndex <= highestIndex) {
 
-            if (data[middleIndex] > dataPoint)
+            if (sortedList[middleIndex] > numberToFind)
                 highestIndex = middleIndex - 1;
-            else if (data[middleIndex] < dataPoint)
+            else if (sortedList[middleIndex] < numberToFind)
                 lowestIndex = middleIndex + 1;
-            else if (data[middleIndex] == dataPoint)
-                return true;
+            else if (sortedList[middleIndex] == numberToFind)
+                return middleIndex;
 
             middleIndex = (lowestIndex + highestIndex) / 2;
         }
 
-        return false;
+        return -1;
     } 
 
-    // Prints out the entire the sorted list
-    private static void printSortedData(int[] data) {
+    
+    private static void NumberFoundHeader(int numberFoundAtIndex, int numberToFind) {
+        String headerMsg = "HOORAY! NUMBER %d WAS FOUND IN COL: %d ROW: %d";
+        int column       = numberFoundAtIndex % 10 + 1;
+        int row          = numberFoundAtIndex / 10 + 1;
 
-        System.out.println("\nCurrent List\n------------");
-
-        for (int i = 0; i < data.length; i++) {
-            if (i % 10 == 0)
-                System.out.printf("\n%-6d", data[i]);
-            else
-                System.out.printf("%-6d", data[i]);
-        }
-        
-        System.out.println();
+        printHeaders(String.format(headerMsg, numberToFind, column, row));
     }
 }
+
+// 0         2         5         9         14        20        27        35                 44        54        
+// 65        77        90        104       119       135       152       170       189       209       
