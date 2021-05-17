@@ -5,16 +5,16 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int[] sortedList        = generateSortedList(100);
-        int numberToFind        = 44; // change this number to test if is in the list
+        int numberToFind        = 4; // change this number to test if is in the list
         int numberFoundAtIndex  = performBinarySearch(sortedList, numberToFind);
         
         printHeaders(String.format("Sorted list of size: %d", sortedList.length));
         printList(sortedList, numberFoundAtIndex);
 
         if (numberFoundAtIndex >= 0) 
-            NumberFoundHeader(numberFoundAtIndex, numberToFind);
+            printNumberFoundHeader(numberFoundAtIndex, numberToFind);
         else
-            printHeaders(String.format("LIST DOES NOT CONTAINER THE NUMEBER %d", numberToFind));
+            printNumberNotFoundHeader(numberToFind);
     }
 
     //  return the index of the number found or -1
@@ -39,14 +39,16 @@ public class BinarySearch {
     } 
 
     
-    private static void NumberFoundHeader(int numberFoundAtIndex, int numberToFind) {
+    private static void printNumberFoundHeader(int numberFoundAtIndex, int numberToFind) {
         String headerMsg = "HOORAY! NUMBER %d WAS FOUND IN COL: %d ROW: %d";
         int column       = numberFoundAtIndex % 10 + 1;
         int row          = numberFoundAtIndex / 10 + 1;
 
         printHeaders(String.format(headerMsg, numberToFind, column, row));
     }
-}
 
-// 0         2         5         9         14        20        27        35                 44        54        
-// 65        77        90        104       119       135       152       170       189       209       
+
+    private static void printNumberNotFoundHeader(int numberToFind) {
+        printHeaders(String.format("LIST DOES NOT CONTAINER THE NUMEBER %d", numberToFind));
+    }
+}
