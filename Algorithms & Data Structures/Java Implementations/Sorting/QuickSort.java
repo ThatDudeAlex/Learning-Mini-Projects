@@ -3,6 +3,9 @@ package Sorting;
 import static Helper.ListUtils.*;
 import static Helper.ListGenerator.*;
 
+// ===================   IN PROGRESS STILL   ===================
+// =================== NOT FULLY WORKING YET ===================
+
 public class QuickSort {
     public static void main(String[] args) {
         int[] list = generateUnsortedList();

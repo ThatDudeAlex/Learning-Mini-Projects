@@ -5,27 +5,26 @@ public class ListUtils {
     private static final String TEXT_BLUE = "\u001B[34m";
     private static final String TEXT_RESET = "\u001B[0m";
 
+    
+    // =================== Auxiliary List Methods ===================
 
-        // Swap the location of two numbers in an array 
-        public static void swap(int[] list, int index1, int index2) {
-            int placeHolder = list[index2];
-            list[index2] = list[index1];
-            list[index1] = placeHolder;
-        }
+    // Swap the location of two numbers in an array 
+    public static void swap(int[] list, int index1, int index2) {
+        int placeHolder = list[index2];
+        list[index2] = list[index1];
+        list[index1] = placeHolder;
+    }
 
-        
-        public static boolean isSorted(int[] list) {
-            for (int i = 1; i < list.length; i++)
-                if (list[i - 1] > list[i])
-                    return false;
-            return true;
-        }
 
-    /* 
-        -------------------------------------------------------------------------------------------------------------------------
-                                        Print List Methods
-        -------------------------------------------------------------------------------------------------------------------------
-    */
+    public static boolean isSorted(int[] list) {
+        for (int i = 1; i < list.length; i++)
+            if (list[i - 1] > list[i])
+                return false;
+        return true;
+    }
+
+
+    // =================== List Printing Methods ===================
 
     public static void printList(int[] list) {
         displayList(list, -1);
@@ -51,11 +50,8 @@ public class ListUtils {
         System.out.println(listOutput.append("\n").toString());
     }
 
-    /* 
-        -------------------------------------------------------------------------------------------------------------------------
-                                        Header Methods
-        -------------------------------------------------------------------------------------------------------------------------
-    */
+
+    // =================== Header Printing Methods ===================
 
     public static void printHeaders(String headerMsg) {
         System.out.printf("%s\n|  %s  |\n%s\n\n", printHeaderBorders(headerMsg), headerMsg, printHeaderBorders(headerMsg));
