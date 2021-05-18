@@ -6,6 +6,21 @@ public class ListUtils {
     private static final String TEXT_RESET = "\u001B[0m";
 
 
+        // Swap the location of two numbers in an array 
+        public static void swap(int[] list, int index1, int index2) {
+            int placeHolder = list[index2];
+            list[index2] = list[index1];
+            list[index1] = placeHolder;
+        }
+
+        
+        public static boolean isSorted(int[] list) {
+            for (int i = 1; i < list.length; i++)
+                if (list[i - 1] > list[i])
+                    return false;
+            return true;
+        }
+
     /* 
         -------------------------------------------------------------------------------------------------------------------------
                                         Print List Methods

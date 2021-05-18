@@ -1,5 +1,7 @@
+package Sorting;
+
 import static Helper.ListUtils.*;
-import static Helper.UnsortedListGenerator.*;
+import static Helper.ListGenerator.*;
 
 public class BubbleSort {
 

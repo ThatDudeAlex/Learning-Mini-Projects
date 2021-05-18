@@ -5,7 +5,7 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int[] sortedList        = generateSortedList(100);
-        int numberToFind        = 4; // change this number to test if is in the list
+        int numberToFind        = 44; // change this number to test if is in the list
         int numberFoundAtIndex  = performBinarySearch(sortedList, numberToFind);
         
         printHeaders(String.format("Sorted list of size: %d", sortedList.length));
