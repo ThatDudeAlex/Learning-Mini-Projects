@@ -1,9 +1,0 @@
-{
-    "java.project.sourcePaths": [
-        "./",
-        "./Helper/ListUtils.java",
-        "./Helper/ListGenerator.java",
-        "./Sorting/BubbleSort.java",
-        "./Search"
-    ]
-}
