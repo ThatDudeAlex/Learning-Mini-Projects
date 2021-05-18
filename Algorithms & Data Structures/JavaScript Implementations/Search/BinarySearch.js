@@ -1,6 +1,6 @@
 // ========= Imports =============
-const {printHeaders, printList} = require("./Helper/ListUtils")
-const {generateSortedList}      = require("./Helper/ListGenerator")
+const {printHeaders, printList} = require("../Helper/ListUtils")
+const {generateSortedList}      = require("../Helper/ListGenerator")
 
 
 //  return the index of the number found or -1

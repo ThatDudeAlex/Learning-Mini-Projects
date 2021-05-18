@@ -1,6 +1,6 @@
 // ========= Imports =============
-const {isSorted, printHeaders, printList} = require("./Helper/ListUtils")
-const {generateUnsortedList}              = require("./Helper/UnsortedListGenerator")
+const {isSorted, printHeaders, printList} = require("../Helper/ListUtils")
+const {generateUnsortedList}              = require("../Helper/ListGenerator")
 
 
 /* 

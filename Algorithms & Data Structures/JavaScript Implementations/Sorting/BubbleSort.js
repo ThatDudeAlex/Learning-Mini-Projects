@@ -1,6 +1,6 @@
 // ========= Imports =============
-const {swap, isSorted, printHeaders, printList} = require("./Helper/ListUtils")
-const {generateFixedSizeUnsortedList}           = require("./Helper/UnsortedListGenerator")
+const {swap, isSorted, printHeaders, printList} = require("../Helper/ListUtils")
+const {generateFixedSizeUnsortedList}           = require("../Helper/ListGenerator")
 
 /* 
     Bubble Sort works by slowly moving bigger numbers down the list, eventually every number will  

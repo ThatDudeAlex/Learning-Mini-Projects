@@ -18,15 +18,13 @@ const isSorted = (list) => {
     -------------------------------------------------------------------------------------------------------------------------
 */
 
-const printList = (list) => displayList(list, 0, list.length)
+const printList = (list) => displayList(list)
 
-const printListBetweenBounds = (list, lowerBound, upperBound) => displayList(list, lowerBound, upperBound)
-
-const displayList = (list, lowerBound, upperBound) => {
+const displayList = (list) => {
     const width      = 10
     let   listOutput = ""
 
-    for (let i = lowerBound, j = 0; i < upperBound; i++, j++)
+    for (let i = 0, j = 0; i < list.length; i++, j++)
         if ((i !== 0) && (j % 10 === 0))
             listOutput += "\n".concat(`${list[i]}${addWidthPadding(width)}`.slice(0,width))
         else 
@@ -61,4 +59,4 @@ const printHeaderBorders = (headerMsg) => {
     return borders.toString()
 }
 
-module.exports = {swap, isSorted, printList, printListBetweenBounds, printHeaders};
+module.exports = {printList, printHeaders, isSorted, swap};
