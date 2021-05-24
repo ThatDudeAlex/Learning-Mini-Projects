@@ -45,7 +45,6 @@ public class BinarySearchTree {
         this.root = deleteRecursively(this.root, data);
     }
 
-
     private Node deleteRecursively(Node currentNode, int data) {
 
         if (currentNode == null)
@@ -95,11 +94,10 @@ public class BinarySearchTree {
         return findMinValueInSubtree(root.leftChild, minValue);
     }
 
-
     public class Node {
         public int data;
-        Node rightChild;
-        Node leftChild;
+        public Node rightChild;
+        public Node leftChild;
 
         public Node(int data) {
             this.data = data;
