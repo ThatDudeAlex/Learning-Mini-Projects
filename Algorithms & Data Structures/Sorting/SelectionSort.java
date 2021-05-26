@@ -1,7 +1,6 @@
 package Sorting;
 
 import static Helper.ListUtils.*;
-import static Helper.ListGenerator.*;
 
 public class SelectionSort {
 
