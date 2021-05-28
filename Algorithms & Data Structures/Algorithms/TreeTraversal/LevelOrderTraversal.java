@@ -17,7 +17,7 @@ public class LevelOrderTraversal {
         System.out.print("\n\n");
     }
 
-    private static void levelOrderTraversal(Node root) {
+    public static void levelOrderTraversal(Node root) {
         LinkedList<Node> queue = new LinkedList<>();
         levelOrderTraversal(root, queue);
     }
