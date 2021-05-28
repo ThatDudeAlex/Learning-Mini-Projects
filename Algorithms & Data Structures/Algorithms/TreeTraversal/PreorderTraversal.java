@@ -19,7 +19,7 @@ public class PreorderTraversal {
         if (curNode == null)
             return;
 
-        System.out.printf("%d ", curNode.data);
+        System.out.printf("%-4d ", curNode.data);
         preorderTraversal(curNode.leftChild);
         preorderTraversal(curNode.rightChild);
     }

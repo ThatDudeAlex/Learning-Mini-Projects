@@ -34,7 +34,7 @@ public class LevelOrderTraversal {
     }
 
     private static void printNodeValue(Node curNode) {
-        System.out.printf("%d ", curNode.data);
+        System.out.printf("%-4d ", curNode.data);
     } 
 
     private static LinkedList<Node> enqueueNodeChildrens(Node curNode, LinkedList<Node> queue) {

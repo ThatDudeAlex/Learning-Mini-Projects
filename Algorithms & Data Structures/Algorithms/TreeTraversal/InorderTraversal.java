@@ -20,7 +20,7 @@ public class InorderTraversal {
             return;
 
         inorderTraversal(curNode.leftChild);
-        System.out.printf("%d ", curNode.data);
+        System.out.printf("%-4d ", curNode.data);
         inorderTraversal(curNode.rightChild);
     }    
 }

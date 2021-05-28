@@ -21,6 +21,6 @@ public class PostorderTraversal {
 
         postorderTraversal(curNode.leftChild);
         postorderTraversal(curNode.rightChild);
-        System.out.printf("%d ", curNode.data);
+        System.out.printf("%-4d ", curNode.data);
     }
 }
