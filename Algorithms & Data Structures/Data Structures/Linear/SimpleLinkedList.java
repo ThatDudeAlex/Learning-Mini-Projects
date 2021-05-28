@@ -11,11 +11,11 @@ public class SimpleLinkedList {
 
     // Inserts at the end of the linked list & return the head node
     public Node insertLast(int data) {
-        Node curHead = head;
+        Node curHead = this.head;
 
         if (curHead == null) {
             this.head = new Node(data);
-            this.listSize++;
+            incrementListSize();;
             return this.head;
         }
 
@@ -23,25 +23,22 @@ public class SimpleLinkedList {
             curHead = curHead.nextNode;
         curHead.nextNode = new Node(data);
 
-        this.listSize++;
+        incrementListSize();;
         return this.head;
     }
 
     // Inserts new node at the beginning of the linked list & returns the new head
     public Node insertFirst(int data) {
-        Node prevHead = this.head;
-        this.head = new Node(data);
-        this.head.nextNode = prevHead;
+        Node newNode = new Node(data);;
+        newNode.nextNode = this.head;
+        this.head = newNode;
 
-        this.listSize++;
-        return this.head;
+        incrementListSize();;
+        return newNode;
     }
 
-
-
-
     // deletes the first node in the list
-    public Node deleteFirst() {
+    public Node deleteHead() {
         if (this.head == null)
             return null;
 
@@ -49,66 +46,72 @@ public class SimpleLinkedList {
         this.head = this.head.nextNode;
         prevHead.nextNode = null;
 
-        this.listSize--;
+        decrementListSize();;
         return prevHead;
     }
 
     // deletes the last node in the list
-    public Node deleteLast() {
-        Node curHead = this.head;
-        Node prevHead = null;
+    public Node deleteTail() {
+        Node curNode = this.head;
+        Node prevNode = null;
 
-        if (curHead == null)
+        if (curNode == null)
             return null;
+        if (curNode.nextNode == null)
+            return deleteHead();
 
-        if (curHead.nextNode == null) {
-            prevHead = curHead;
-            this.head = null;
-            return prevHead;
+        while (curNode.nextNode != null) {
+            prevNode = curNode;
+            curNode = curNode.nextNode;
         }
 
-        while (curHead.nextNode != null) {
-            prevHead = curHead;
-            curHead = curHead.nextNode;
-        }
+        prevNode.nextNode = null;
 
-        prevHead.nextNode = null;
-
-        this.listSize--;
-        return curHead;
+        decrementListSize();;
+        return curNode;
     }
 
     // deletes the node in the specified index 
-    public boolean deleteIndex(int index) {
-        Node curHead = this.head;
-        Node prevHead = null;
+    public Node deleteIndex(int index) {
+        Node curNode = this.head;
+        Node prevNode = null;
 
-        if ((this.listSize == 0) || index < 0 || index >= this.listSize)
-            return false;
+        if (isEmpty() || isOutOfBoundsIndex(index))
+            return null;
 
-        if (index == 0) {
-            prevHead = this.head;
-            this.head = this.head.nextNode;
-            prevHead.nextNode = null;
-
-            this.listSize--;
-            return true;
-        }
+        if (index == 0)
+            deleteHead();
+        if (index == size() - 1)
+            return deleteTail();
 
         for (int i = 0; i < index; i++) {
-            prevHead = curHead;
-            curHead = curHead.nextNode;
+            prevNode = curNode;
+            curNode = curNode.nextNode;
         }
 
-        this.listSize--;
-        prevHead.nextNode = curHead.nextNode;
-        curHead.nextNode = null;
+        decrementListSize();;
+        prevNode.nextNode = curNode.nextNode;
+        curNode.nextNode = null;
 
-        return true;
+        return curNode;
     }
 
     public int size() {
         return this.listSize;
+    }
+    public int incrementListSize() {
+        return this.listSize++;
+    }
+    public int decrementListSize() {
+        return this.listSize--;
+    }
+
+    public boolean isEmpty() {
+        return (size() == 0) ? true : false;
+    }
+
+    private boolean isOutOfBoundsIndex(int index) {
+        return (index < 0 || index >= size()) ? true : false;
     }
 
 
